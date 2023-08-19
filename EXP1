@@ -1,0 +1,51 @@
+
+package sapexp2;
+
+import java.util.Scanner;
+
+
+public class Sapexp2 {
+
+    
+    public static void main(String[] args) {
+        {
+        Scanner obj=new Scanner(System.in);
+        String name=obj.next();
+        System.out.println("name:"+name);
+        int rollno=obj.nextInt();
+        System.out.println("rollno:"+rollno);
+        int totalmark=obj.nextInt();
+        System.out.println("totalmark:"+totalmark);
+        if(totalmark>90 && totalmark<100)
+        {
+            System.out.println("congratulations you are pass with O grade");
+        }
+        else if(totalmark>90 && totalmark<80)
+        {
+            System.out.println("you are pass with A grade");
+        }
+        else if(totalmark>80 && totalmark<70)
+        {
+            System.out.println("you are pass with B grade");
+        }
+        else if(totalmark>70 && totalmark<60)
+        {
+            System.out.println("you are pass with c grade");
+        }
+        else if(totalmark>60 && totalmark<50)
+        {
+            System.out.println("you are just pass with D grade");
+        }
+        else
+        {
+            System.out.println("you are fail");
+        }
+        
+    }
+    
+}
+
+       
+    }
+    
+}
