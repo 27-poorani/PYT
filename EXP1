@@ -155,7 +155,7 @@ public class Sap
 123456
 */
 
-//5.two concaenate two strings
+//5.two concatenate two strings
 //"hello world"
 
 package sap.pkg1;
