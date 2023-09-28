@@ -115,3 +115,86 @@ public class TestEmployeeData {
     }
 }
 
+common program
+
+// MathOperations
+package pack1;
+
+public class MathOperations {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+}
+
+// StringOperations
+package pack2;
+
+public class StringOperations {
+    public String concatenate(String str1, String str2) {
+        return str1 + str2;
+    }
+
+    public String reverse(String str) {
+        StringBuilder reversed = new StringBuilder(str);
+        return reversed.reverse().toString();
+    }
+}
+
+// Calculator
+package pack3;
+
+public class Calculator {
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public String divide(int a, int b) {
+        if (b == 0) {
+            return "Cannot divide by zero.";
+        }
+        return String.valueOf(a / b);
+    }
+}
+
+// MainApp
+import pack1.MathOperations;
+import pack2.StringOperations;
+import pack3.Calculator;
+
+public class MainApp {
+    public static void main(String[] args) {
+      
+        MathOperations math = new MathOperations();
+        StringOperations stringOps = new StringOperations();
+        Calculator calculator = new Calculator();
+
+       
+        int resultAdd = math.add(5, 3);
+        int resultSubtract = math.subtract(10, 4);
+
+        String resultConcatenate = stringOps.concatenate("Hello, ", "world!");
+        String resultReverse = stringOps.reverse("Java");
+
+        int resultMultiply = calculator.multiply(6, 7);
+        String resultDivide = calculator.divide(12, 4);
+        String resultDivideByZero = calculator.divide(8, 0);
+
+       
+        System.out.println("Math Operations:");
+        System.out.println("Addition: " + resultAdd);
+        System.out.println("Subtraction: " + resultSubtract);
+
+        System.out.println("\nString Operations:");
+        System.out.println("Concatenation: " + resultConcatenate);
+        System.out.println("Reversed String: " + resultReverse);
+
+        System.out.println("\nCalculator Operations:");
+        System.out.println("Multiplication: " + resultMultiply);
+        System.out.println("Division: " + resultDivide);
+        System.out.println("Division by Zero: " + resultDivideByZero);
+    }
+}
