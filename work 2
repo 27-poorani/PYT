@@ -1,0 +1,258 @@
+1.
+public class ReverseString {
+    public static void main(String[] args) {
+        String original = "Hello, World!";
+        String reversed = reverseString(original);
+        System.out.println("Original: " + original);
+        System.out.println("Reversed: " + reversed);
+    }
+
+    public static String reverseString(String str) {
+        char[] charArray = str.toCharArray();
+        int left = 0;
+        int right = charArray.length - 1;
+        
+        while (left < right) {
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            left++;
+            right--;
+        }
+        
+        return new String(charArray);
+    }
+}
+output
+Original: Hello, World!
+Reversed: !dlroW ,olleH
+
+
+2.
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        String str = "racecar";
+        boolean isPalindrome = isPalindrome(str);
+
+        if (isPalindrome) {
+            System.out.println(str + " is a palindrome.");
+        } else {
+            System.out.println(str + " is not a palindrome.");
+        }
+    }
+
+    public static boolean isPalindrome(String str) {
+        str = str.toLowerCase(); // Convert the string to lowercase for case-insensitive comparison
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
+
+output
+racecar is a palindrome.
+
+3.import java.util.Scanner;
+
+public class VowelConsonantCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter a string: ");
+        String input = scanner.nextLine().toLowerCase(); // Convert to lowercase for case-insensitive matching
+
+        int vowelCount = 0;
+        int consonantCount = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+
+            if (Character.isLetter(ch)) {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowelCount++;
+                } else {
+                    consonantCount++;
+                }
+            }
+        }
+
+        System.out.println("Vowels: " + vowelCount);
+        System.out.println("Consonants: " + consonantCount);
+    }
+}
+
+output
+Enter a string:
+Hello, World!
+Vowels: 3
+Consonants: 7
+
+4,
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class PatternCounter {
+    public static void main(String[] args) {
+        String input = "This is a test. Test is important. Testing is fun.";
+        String pattern = "is"; // The pattern you want to search for
+
+        int count = countPatternOccurrences(input, pattern);
+
+        System.out.println("The pattern \"" + pattern + "\" occurs " + count + " times in the input string.");
+    }
+
+    public static int countPatternOccurrences(String input, String pattern) {
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(input);
+
+        int count = 0;
+        while (m.find()) {
+            count++;
+        }
+
+        return count;
+    }
+}
+
+output
+The pattern "is" occurs 4 times in the input string.
+
+5.
+public class WordCounter {
+    public static void main(String[] args) {
+        String text = "This is a sample sentence. Count the words in this string.";
+
+        String[] words = text.split("\\s+"); // Split the text into words based on whitespace
+        int wordCount = words.length;
+
+        System.out.println("Total words: " + wordCount);
+    }
+}
+
+output
+Total words: 10
+6.
+import java.util.Arrays;
+
+public class StringSorting {
+    public static void main(String[] args) {
+        String[] strArray = {"banana", "apple", "cherry", "date", "fig"};
+
+        // Sort the array of strings in lexicographical order (alphabetically)
+        Arrays.sort(strArray);
+
+        System.out.println("Sorted Array of Strings:");
+        for (String str : strArray) {
+            System.out.println(str);
+        }
+    }
+}
+
+output'
+Sorted Array of Strings:
+apple
+banana
+cherry
+date
+fig
+
+7.
+import java.util.Arrays;
+
+public class AnagramChecker {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+
+        if (areAnagrams(str1, str2)) {
+            System.out.println(str1 + " and " + str2 + " are anagrams.");
+        } else {
+            System.out.println(str1 + " and " + str2 + " are not anagrams.");
+        }
+    }
+
+    public static boolean areAnagrams(String str1, String str2) {
+        // Remove spaces and convert to lowercase
+        str1 = str1.replaceAll("\\s", "").toLowerCase();
+        str2 = str2.replaceAll("\\s", "").toLowerCase();
+
+        // Check if the lengths are the same
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        // Sort the characters in the strings
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+
+        // Compare the sorted strings
+        return Arrays.equals(charArray1, charArray2);
+    }
+}
+output
+listen and silent are anagrams.
+
+8.
+public class StringSwap {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        System.out.println("Before swapping:");
+        System.out.println("str1: " + str1);
+        System.out.println("str2: " + str2);
+
+        // Swap the values of str1 and str2 using a temporary variable
+        String temp = str1;
+        str1 = str2;
+        str2 = temp;
+
+        System.out.println("\nAfter swapping:");
+        System.out.println("str1: " + str1);
+        System.out.println("str2: " + str2);
+    }
+}
+
+output
+Before swapping:
+str1: Hello
+str2: World
+
+After swapping:
+str1: World
+str2: Hello
+
+9.
+public class CapitalizeFirstLetter {
+    public static void main(String[] args) {
+        String input = "hello, world!";
+        String capitalized = capitalizeFirstLetter(input);
+
+        System.out.println("Original: " + input);
+        System.out.println("Capitalized: " + capitalized);
+    }
+
+    public static String capitalizeFirstLetter(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+
+        char firstChar = Character.toUpperCase(str.charAt(0));
+        return firstChar + str.substring(1);
+    }
+}
+
+output
+Original: hello, world!
+Capitalized: Hello, world!
