@@ -1,0 +1,132 @@
+Create a Java program that uses three threads to print the numbers from 1 to 100 in
+sequence. Each thread is responsible for printing a specific range of numbers in order. The
+goal is to ensure that the numbers are printed in sequential order, starting from 1 and ending
+at 100. Use multithreading and synchronization to ensure that the three threads print the
+numbers in the correct sequence and avoid race conditions
+ 
+package javaapplication20;
+
+
+public class JavaApplication20 {
+
+   
+    public static void main(String[] args) {
+        // TODO code application logic here
+        sequence obj=new sequence();
+       
+        mythread1 t1=new mythread1(obj);
+        mythread2 t2=new mythread2(obj);
+        mythread3 t3=new mythread3(obj);
+       
+        t1.start();
+        t2.start();
+        t3.start();
+       
+    }
+   
+}
+
+class sequence
+{
+       synchronized void printsequence(int m,int n)
+      {
+       for(int i=m;i<n;i++)
+       {
+                System.out.println(Thread.currentThread().getName()+":"+i);
+           
+            try
+            {
+                Thread.sleep(400);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+      }
+       
+ }
+}
+
+class mythread1 extends Thread
+{
+    sequence s;
+    int n;
+    mythread1(sequence s)
+    {
+        this.s=s;
+    }
+    public void run()
+    {
+        s.printsequence(1,40);
+   
+    }
+
+}
+
+
+class mythread2 extends Thread
+{
+    sequence s;
+    int n;
+   
+    mythread2(sequence s)
+    {
+        this.s=s;
+    }
+    public void run()
+    {
+         s.printsequence(41,80);
+     
+}
+}
+
+class mythread3 extends Thread
+{
+    sequence s;
+    int n;
+   
+    mythread3 (sequence s)
+    {
+        this.s=s;
+    }
+    public void run()
+    {
+       s.printsequence(81,100);
+     
+    }
+}
+
+2.
+public class TestThreadMany {
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.err.println("Usage: java TestThreadMany <number_of_threads>");
+            System.exit(1);
+        }
+
+        int n = Integer.parseInt(args[0]);
+
+        if (n <= 0) {
+            System.err.println("Please provide a positive integer as the number of threads.");
+            System.exit(1);
+        }
+
+        for (int i = 1; i <= n; i++) {
+            Thread thread = new Thread(new MyThread("Thread #" + i));
+            thread.start();
+        }
+    }
+
+    static class MyThread implements Runnable {
+        private String name;
+
+        public MyThread(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void run() {
+            System.out.println("Hello, I am " + name);
+        }
+    }
+}
